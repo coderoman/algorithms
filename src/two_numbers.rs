@@ -1,6 +1,18 @@
-pub fn two_numbers(array: &[isize], sum: usize) -> i8 {
-    println!("Hello, world!");
-    return 2;
+use std::collections::HashMap;
+
+pub fn two_numbers_hashmap(array: &[isize], sum: isize) -> (isize, isize) {
+    let mut acc = HashMap::new();
+
+    for num in array.iter() {
+        let summand = sum - num;
+
+        match acc.get(&summand) {
+            None => acc.insert(summand, true),
+            Some(_value) => return (*num, summand),
+        };
+    }
+
+    (0, 0)
 }
 
 #[cfg(test)]
@@ -9,6 +21,9 @@ mod tests {
 
     #[test]
     fn is_right_two_numbers_found() {
-        assert_eq!(two_numbers(&[3, 5, -4, 8, 11, 11, -1, 6], 10), 2)
+        assert_eq!(
+            two_numbers_hashmap(&[3, 5, -4, 8, 11, 11, -1, 6], 10),
+            (11, -1)
+        )
     }
 }
