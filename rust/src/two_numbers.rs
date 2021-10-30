@@ -15,6 +15,10 @@ pub fn two_numbers_hashmap(array: &[isize], sum: isize) -> (isize, isize) {
     (0, 0)
 }
 
+pub fn two_numbers_cursors(array: &[isize], sum: isize) -> (isize, isize) {
+    return (0, 0);
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
