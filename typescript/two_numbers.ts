@@ -21,6 +21,7 @@ function two_numbers_hashmap(array: number[], sum: number): number[] {
     return [0, 0]
 }
 
+
 function two_numbers_cursor(array: number[], sum:number): number[]{
     return [0,0]
 }
