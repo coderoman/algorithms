@@ -43,6 +43,7 @@ const tree1: Tree = {
 }
 
 function find_closest_value_BST_helper(tree: Tree, target: number, closest: number): number {
+    // Base case - return without making a recursive call
     if (!tree) {
         return closest
     }
@@ -51,6 +52,7 @@ function find_closest_value_BST_helper(tree: Tree, target: number, closest: numb
         closest = tree.value
     }
 
+    // Choose branch, in bst left branch nodes always lesser than root
     if (target < tree.value) {
         return find_closest_value_BST_helper(tree.left, target, closest)
     }
@@ -58,11 +60,23 @@ function find_closest_value_BST_helper(tree: Tree, target: number, closest: numb
         return find_closest_value_BST_helper(tree.right, target, closest)
     }
 
+    // if tree.value is equal to target
     return closest
 }
 
 
-
+/**
+ * Search of closes value in binary search tree
+ *
+ * average complexity O(log(n))
+ * worst is O(n) is one branch scenario
+ * Space is the same as complexity because of recursion
+ *
+ * @param tree
+ * @param target
+ *
+ * @returns {number}
+ */
 function find_closest_value_BST_recursion(tree: Tree, target: number) {
     return find_closest_value_BST_helper(tree, target, Infinity)
 }
