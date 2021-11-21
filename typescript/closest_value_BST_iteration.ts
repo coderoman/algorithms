@@ -1,10 +1,6 @@
-type Tree = {
-    value: number;
-    left: Tree;
-    right: Tree
-} | null
+import {Tree} from './interfaces';
 
-const tree: Tree = {
+const tree: Tree<number> = {
     value: 10,
     left: {
         value: 5,
@@ -55,7 +51,7 @@ const tree: Tree = {
  *
  * @returns {number}
  */
-function find_closest_value_BST_iteration(tree: Tree, target: number) {
+function find_closest_value_BST_iteration(tree: Tree<number> | null, target: number) {
     let current = tree
     let closest = Infinity
 

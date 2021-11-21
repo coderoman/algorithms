@@ -1,10 +1,6 @@
-type Tree = {
-    value: number;
-    left: Tree;
-    right: Tree
-} | null
+import {Tree} from './interfaces';
 
-const tree1: Tree = {
+const tree: Tree<number> = {
     value: 10,
     left: {
         value: 5,
@@ -42,7 +38,7 @@ const tree1: Tree = {
     }
 }
 
-function find_closest_value_BST_helper(tree: Tree, target: number, closest: number): number {
+function find_closest_value_BST_helper(tree: Tree<number> | null, target: number, closest: number): number {
     // Base case - return without making a recursive call
     if (!tree) {
         return closest
@@ -77,9 +73,9 @@ function find_closest_value_BST_helper(tree: Tree, target: number, closest: numb
  *
  * @returns {number}
  */
-function find_closest_value_BST_recursion(tree: Tree, target: number) {
+function find_closest_value_BST_recursion(tree: Tree<number>, target: number) {
     return find_closest_value_BST_helper(tree, target, Infinity)
 }
 
 
-console.log(find_closest_value_BST_recursion(tree1, 12))
+console.log(find_closest_value_BST_recursion(tree, 12))
