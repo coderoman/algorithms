@@ -1,4 +1,5 @@
 // https://en.wikipedia.org/wiki/Shunting_yard_algorithm
+#![allow(dead_code)]
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Operator {
@@ -186,7 +187,8 @@ mod tests {
     #[test]
     fn evaluate_postfix_expression() {
         let tokens = Calculator::parse("2 * 2 + 48 / 4").unwrap();
+        let expression = Calculator::expression(tokens);
 
-        assert_eq!(16_f32, Calculator::evaluate(tokens).unwrap_or(10.0));
+        assert_eq!(16_f32, Calculator::evaluate(expression).unwrap_or(10.0));
     }
 }
