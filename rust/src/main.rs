@@ -1,5 +1,6 @@
 mod balanced_brackets;
 mod binary_search;
+mod bubble_sort;
 mod find_duplicates;
 mod shunting_yard_parser;
 mod two_numbers_cursor;
